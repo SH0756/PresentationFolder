@@ -39,7 +39,7 @@ namespace nel {
 			ReadEmitterFile(filename, *Param);
 		}
 
-		//ファイルからパーティクルのパラメータ値を読み込みます（.emitter形式）
+		//ファイルからエミッタのパラメータ値を読み込みます（.emitter形式）
 		void ReadEmitterFile(wstring filename, EmitterParameter& param);
 
 		~CEmitterFile() { delete Param; }
