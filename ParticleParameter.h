@@ -44,7 +44,7 @@ namespace nel {
 			PositionRange(CVector()),
 			InitVelocity(CVector()), InitVelocityRange(CVector()), Velocity(CVector()), VelocityRange(CVector()),
 			InitRotation(CQuaternion()), InitRotationRange(CQuaternion()), Rotation(CQuaternion()), RotationRange(CQuaternion()),
-			UseGravity(false), Gravity(0.000163f),
+			UseGravity(false), Gravity(0.0001f),
 			LifeTime(0), LifeTimeRange(0),
 			Billboard(true) {}
 
@@ -59,8 +59,8 @@ namespace nel {
 			Velocity *= n;
 			VelocityRange *= n;
 			Gravity *= n;
-			LifeTime *= n;
-			LifeTimeRange *= n;
+			LifeTime = (unsigned int)(LifeTime * n);
+			LifeTimeRange = (unsigned int)(LifeTimeRange * n);
 
 			return *this;
 		}
