@@ -14,10 +14,18 @@ namespace nel {
 		CColor			InitColorRange;				//色の初期値の幅
 		CColor			EndColor;					//色の終了値
 		CColor			Color;						//色の変化量
+		CColor			InitSpecularColor;			//ハイライト色の初期値
+		CColor			InitSpecularColorRange;		//ハイライト色の初期値の幅
+		CColor			EndSpecularColor;			//ハイライト色の終了値
+		CColor			SpecularColor;				//ハイライト色の変化量
 		CColor			InitEmissiveColor;			//自己発光色の初期値
 		CColor			InitEmissiveColorRange;		//自己発光色の初期値の幅
 		CColor			EndEmissiveColor;			//自己発光色の終了値
 		CColor			EmissiveColor;				//自己発光色の変化量
+		CColor			InitRimColor;				//リムライト色の初期値
+		CColor			InitRimColorRange;			//リムライト色の初期値の幅
+		CColor			EndRimColor;				//リムライト色の終了値
+		CColor			RimColor;					//リムライト色の変化量
 		CVector			PositionRange;				//生成位置の幅
 		CVector			InitVelocity;				//初期加速度
 		CVector			InitVelocityRange;			//初期加速度の幅
@@ -32,6 +40,8 @@ namespace nel {
 		unsigned int	LifeTime;					//生存時間（フレーム単位）
 		unsigned int	LifeTimeRange;				//生存時間の幅
 		bool			Billboard;					//ビルボード（デフォルトは true）
+		bool			ShadowCasting;				//この物体は影を落とす（デフォルトは true）
+		bool			ShadowCasted;				//この物体は影が落ちる（デフォルトは true）
 
 		//コンストラクタ
 
@@ -40,29 +50,27 @@ namespace nel {
 			Name(L""), TextureName(L""), ModelName(L""),
 			InitScale(CVector()), InitScaleRange(CVector()), EndScale(CVector()), Scale(CVector()),
 			InitColor(CColor()), InitColorRange(CColor()), EndColor(CColor()), Color(CColor()),
+			InitSpecularColor(CColor()), InitSpecularColorRange(CColor()), EndSpecularColor(CColor()), SpecularColor(CColor()),
 			InitEmissiveColor(CColor()), InitEmissiveColorRange(CColor()), EndEmissiveColor(CColor()), EmissiveColor(CColor()),
+			InitRimColor(CColor()), InitRimColorRange(CColor()), EndRimColor(CColor()), RimColor(CColor()),
 			PositionRange(CVector()),
 			InitVelocity(CVector()), InitVelocityRange(CVector()), Velocity(CVector()), VelocityRange(CVector()),
 			InitRotation(CQuaternion()), InitRotationRange(CQuaternion()), Rotation(CQuaternion()), RotationRange(CQuaternion()),
 			UseGravity(false), Gravity(0.0001f),
 			LifeTime(0), LifeTimeRange(0),
-			Billboard(true) {}
+			Billboard(true), ShadowCasting(true), ShadowCasted(true) {}
 
-		ParticleParameter& operator*(float n) {
-			InitScale *= n;
-			InitScaleRange *= n;
-			EndScale *= n;
-			Scale *= n;
-			PositionRange *= n;
-			InitVelocity *= n;
-			InitVelocityRange *= n;
-			Velocity *= n;
-			VelocityRange *= n;
-			Gravity *= n;
-			LifeTime = (unsigned int)(LifeTime * n);
-			LifeTimeRange = (unsigned int)(LifeTimeRange * n);
-
-			return *this;
+		//変化量を求める
+		void Movement() {
+			if (LifeTime < LifeTimeRange) LifeTimeRange = LifeTime - 1;
+			LifeTime = (unsigned int)(LifeTime + LifeTimeRange * Random(-1, 1));
+			Scale = (EndScale - InitScale) / (float)LifeTime;
+			Color = (EndColor - InitColor) / (float)LifeTime;
+			SpecularColor = (EndSpecularColor - InitSpecularColor) / (float)LifeTime;
+			EmissiveColor = (EndEmissiveColor - InitEmissiveColor) / (float)LifeTime;
+			RimColor = (EndRimColor - InitRimColor) / (float)LifeTime;
+			Velocity += VelocityRange * Random(-1, 1);
+			Rotation += RotationRange * Random(-1, 1);
 		}
 	};
 }

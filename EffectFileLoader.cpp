@@ -25,9 +25,15 @@ namespace nel {
 			if (result[0] == "InitColor")				param.InitColor					= StringToCColor(result[1]);
 			if (result[0] == "InitColorRange")			param.InitColorRange			= StringToCColor(result[1]);
 			if (result[0] == "EndColor")				param.EndColor					= StringToCColor(result[1]);
+			if (result[0] == "InitSpecularColor")		param.InitSpecularColor			= StringToCColor(result[1]);
+			if (result[0] == "InitSpecularColorRange")	param.InitSpecularColorRange	= StringToCColor(result[1]);
+			if (result[0] == "EndSpecularColor")		param.EndColor					= StringToCColor(result[1]);
 			if (result[0] == "InitEmissiveColor")		param.InitEmissiveColor			= StringToCColor(result[1]);
 			if (result[0] == "InitEmissiveColorRange")	param.InitEmissiveColorRange	= StringToCColor(result[1]);
 			if (result[0] == "EndEmissiveColor")		param.EndEmissiveColor			= StringToCColor(result[1]);
+			if (result[0] == "InitRimColor")			param.InitRimColor				= StringToCColor(result[1]);
+			if (result[0] == "InitRimColorRange")		param.InitRimColorRange			= StringToCColor(result[1]);
+			if (result[0] == "EndRimColor")				param.EndRimColor				= StringToCColor(result[1]);
 			if (result[0] == "PositionRange")			param.PositionRange				= StringToCVector(result[1]);
 			if (result[0] == "InitVelocity")			param.InitVelocity				= StringToCVector(result[1]);
 			if (result[0] == "InitVelocityRange")		param.InitVelocityRange			= StringToCVector(result[1]);
@@ -42,7 +48,12 @@ namespace nel {
 			if (result[0] == "LifeTime")				param.LifeTime					= (unsigned int)StringToInt(result[1]);
 			if (result[0] == "LifeTimeRange")			param.LifeTimeRange				= (unsigned int)StringToInt(result[1]);
 			if (result[0] == "Billboard")				param.Billboard					= StringToBool(result[1]);
+			if (result[0] == "ShadowCasting")			param.ShadowCasting				= StringToBool(result[1]);
+			if (result[0] == "ShadowCasted")			param.ShadowCasted				= StringToBool(result[1]);
 		}
+
+		//変化量を求める
+		param.Movement();
 	}
 
 	//パーティクルファイルを作成します
@@ -51,21 +62,24 @@ namespace nel {
 		ofstream ofs(GetExePath() + L"../effect/" + filename + L".particle", ios::out | ios::_Noreplace);
 
 		if (ofs) {
-			ofs << "Name:" << TWStringToString(filename) << endl
+			ofs << "Name:"						<< TWStringToString(filename) << endl
 				<< "TextureName:"				<< endl
 				<< "ModelName:"					<< endl
 				<< "InitScale:,,"				<< endl
 				<< "InitScaleRange:,,"			<< endl
 				<< "EndScale:,,"				<< endl
-				<< "Scale:,,"					<< endl
 				<< "InitColor:,,,"				<< endl
 				<< "InitColorRange:,,,"			<< endl
 				<< "EndColor:,,,"				<< endl
-				<< "Color:,,,"					<< endl
+				<< "InitSpecularColor:,,,"		<< endl
+				<< "InitSpecularColorRange:,,," << endl
+				<< "EndSpecularColor:,,,"		<< endl
 				<< "InitEmissiveColor:,,,"		<< endl
 				<< "InitEmissiveColorRange:,,," << endl
 				<< "EndEmissiveColor:,,,"		<< endl
-				<< "EmissiveColor:,,,"			<< endl
+				<< "InitRimColor:,,,"			<< endl
+				<< "InitRimColorRange:,,,"		<< endl
+				<< "EndRimColor:,,,"			<< endl
 				<< "PositionRange:,,"			<< endl
 				<< "InitVelocity:,,"			<< endl
 				<< "InitVelocityRange:,,"		<< endl
@@ -80,6 +94,8 @@ namespace nel {
 				<< "LifeTime:"					<< endl
 				<< "LifeTimeRange:"				<< endl
 				<< "Billboard:"					<< "true" << endl
+				<< "ShadowCasting:"				<< "true" << endl
+				<< "ShadowCasted:"				<< "true" << endl
 				<< "eop" << endl
 				<< endl
 				<< endl

@@ -13,7 +13,7 @@ namespace nel {
 		CQuaternion				InitRotationRange;			//初期回転量の幅
 		CQuaternion				Rotation;					//回転量の変化量
 		CQuaternion				RotationRange;				//回転量の幅
-		unsigned int			LifeTime;					//生存時間（フレーム単位、０を入れると消去判定無し）
+		unsigned int			LifeTime;					//生存時間（フレーム単位）
 		unsigned int			LifeTimeRange;				//生存時間の幅
 		vector<wstring>			GenerationList;				//生成リスト
 		vector<unsigned int>	Interval;					//生成間隔
