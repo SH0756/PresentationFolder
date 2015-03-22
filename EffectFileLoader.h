@@ -6,7 +6,7 @@ namespace nel {
 		ParticleParameter* Param;
 
 		//引数なしコンストラクタ
-		CParticleFile() {}
+		CParticleFile() : Param(NULL) {}
 
 		//filename からパラメータ値を読み込みます
 		CParticleFile(wstring filename) {
@@ -31,7 +31,7 @@ namespace nel {
 		EmitterParameter* Param;
 
 		//引数なしコンストラクタ
-		CEmitterFile() {}
+		CEmitterFile() : Param(NULL) {}
 
 		//filename からパラメータ値を読み込みます
 		CEmitterFile(wstring filename) {
