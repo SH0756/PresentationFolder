@@ -72,5 +72,8 @@ namespace nel {
 			Velocity += VelocityRange * Random(-1, 1);
 			Rotation += RotationRange * Random(-1, 1);
 		}
+
+		//パラメータ値を返します
+		ParticleParameter& GetParameter() { return *this; }
 	};
 }

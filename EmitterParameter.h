@@ -28,5 +28,8 @@ namespace nel {
 			InitVelocity(CVector()), InitVelocityRange(CVector()), Velocity(CVector()), VelocityRange(CVector()), 
 			InitRotation(CQuaternion()), InitRotationRange(CQuaternion()), Rotation(CQuaternion()), RotationRange(CQuaternion()), 
 			LifeTime(0), LifeTimeRange(0) {}
+
+		//パラメータ値を返します
+		EmitterParameter& GetParameter() { return *this; }
 	};
 }

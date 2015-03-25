@@ -1,23 +1,18 @@
 namespace nel {
 
 	//パーティクルファイルの操作-----------------------------------------------------------------------------------------
-	class CParticleFile {
+	class CParticleFile : public ParticleParameter {
 	public:
-		ParticleParameter* Param;
-
 		//引数なしコンストラクタ
-		CParticleFile() : Param(NULL) {}
+		CParticleFile() {}
 
 		//filename からパラメータ値を読み込みます
 		CParticleFile(wstring filename) {
-			Param = new ParticleParameter;
-			ReadParticleFile(filename, *Param);
+			ReadParticleFile(filename);
 		}
 
 		//ファイルからパーティクルのパラメータ値を読み込みます（.particle形式）
-		void ReadParticleFile(wstring filename, ParticleParameter& param);
-
-		~CParticleFile() { delete Param; }
+		void ReadParticleFile(wstring filename);
 	};
 
 	//パーティクルファイルを作成します
@@ -25,24 +20,19 @@ namespace nel {
 	void CreateParticleFile(wstring filename);
 
 
-	//エミッタファイルの操作-----------------------------------------------------------------------------------------------
-	class CEmitterFile {
+	//エミッタファイルの操作クラス-----------------------------------------------------------------------------------------------
+	class CEmitterFile : public EmitterParameter {
 	public:
-		EmitterParameter* Param;
-
 		//引数なしコンストラクタ
-		CEmitterFile() : Param(NULL) {}
+		CEmitterFile() {}
 
 		//filename からパラメータ値を読み込みます
 		CEmitterFile(wstring filename) {
-			Param = new EmitterParameter;
-			ReadEmitterFile(filename, *Param);
+			ReadEmitterFile(filename);
 		}
 
 		//ファイルからエミッタのパラメータ値を読み込みます（.emitter形式）
-		void ReadEmitterFile(wstring filename, EmitterParameter& param);
-
-		~CEmitterFile() { delete Param; }
+		void ReadEmitterFile(wstring filename);
 	};
 
 	//エミッタファイルを作成します
