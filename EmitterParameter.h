@@ -15,11 +15,14 @@ namespace nel {
 		CQuaternion				RotationRange;				//回転量の幅
 		unsigned int			LifeTime;					//生存時間（フレーム単位）
 		unsigned int			LifeTimeRange;				//生存時間の幅
-		vector<wstring>			GenerationList;				//生成リスト
-		vector<unsigned int>	Interval;					//生成間隔
-		vector<unsigned int>	Production;					//生成量
+		vector<wstring>			EGenerationList;			//エミッタ生成リスト
+		vector<unsigned int>	EInterval;					//エミッタ生成間隔
+		vector<unsigned int>	EProduction;				//エミッタ生成量
+		vector<wstring>			PGenerationList;			//パーティクル生成リスト
+		vector<unsigned int>	PInterval;					//パーティクル生成間隔
+		vector<unsigned int>	PProduction;				//パーティクル生成量
 
-		//コンスタラクタ
+		//コンストラクタ
 
 		//引数なしコンストラクタ
 		EmitterParameter() :
@@ -28,6 +31,13 @@ namespace nel {
 			InitVelocity(CVector()), InitVelocityRange(CVector()), Velocity(CVector()), VelocityRange(CVector()), 
 			InitRotation(CQuaternion()), InitRotationRange(CQuaternion()), Rotation(CQuaternion()), RotationRange(CQuaternion()), 
 			LifeTime(0), LifeTimeRange(0) {}
+
+		void Movement() {
+			if (LifeTimeRange > LifeTime) LifeTimeRange = LifeTime - 1;
+			LifeTime = (unsigned int)(LifeTime + LifeTimeRange * Random(-1, 1));
+			Velocity += (VelocityRange * Random(-1, 1));
+			Rotation *= (RotationRange * Random(-1, 1));
+		}
 
 		//パラメータ値を返します
 		EmitterParameter& GetParameter() { return *this; }

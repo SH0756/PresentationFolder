@@ -112,35 +112,51 @@ namespace nel {
 		string buf;
 
 		while (ifs && getline(ifs, buf) && buf != "eoe") {
-
+			//分割した文字列を入れておく受け皿
 			vector<string> result;
 
 			//文字列の分割
 			Split(buf, ':', result);
 
 			//パラメータ値の読み出し
-			if (result[0] == "Name")					Name = StringToWString(result[1]);
-			if (result[0] == "PositionRange")			PositionRange = StringToCVector(result[1]);
-			if (result[0] == "InitVelocity")			InitVelocity = StringToCVector(result[1]);
-			if (result[0] == "InitVelocityRange")		InitVelocityRange = StringToCVector(result[1]);
-			if (result[0] == "Velocity")				Velocity = StringToCVector(result[1]);
-			if (result[0] == "VelocityRange")			VelocityRange = StringToCVector(result[1]);
-			if (result[0] == "InitRotation")			InitRotation = StringToCQuaternion(result[1]);
-			if (result[0] == "InitRotationRange")		InitRotationRange = StringToCQuaternion(result[1]);
-			if (result[0] == "Rotation")				Rotation = StringToCQuaternion(result[1]);
-			if (result[0] == "RotationRange")			RotationRange = StringToCQuaternion(result[1]);
-			if (result[0] == "LifeTime")				LifeTime = (unsigned int)StringToInt(result[1]);
-			if (result[0] == "LifeTimeRange")			LifeTimeRange = (unsigned int)StringToInt(result[1]);
-			if (result[0] == "Particle" || result[0] == "Emitter") {
+			if (result[0] == "Name")					Name				= StringToWString(result[1]);
+			if (result[0] == "PositionRange")			PositionRange		= StringToCVector(result[1]);
+			if (result[0] == "InitVelocity")			InitVelocity		= StringToCVector(result[1]);
+			if (result[0] == "InitVelocityRange")		InitVelocityRange	= StringToCVector(result[1]);
+			if (result[0] == "Velocity")				Velocity			= StringToCVector(result[1]);
+			if (result[0] == "VelocityRange")			VelocityRange		= StringToCVector(result[1]);
+			if (result[0] == "InitRotation")			InitRotation		= StringToCQuaternion(result[1]);
+			if (result[0] == "InitRotationRange")		InitRotationRange	= StringToCQuaternion(result[1]);
+			if (result[0] == "Rotation")				Rotation			= StringToCQuaternion(result[1]);
+			if (result[0] == "RotationRange")			RotationRange		= StringToCQuaternion(result[1]);
+			if (result[0] == "LifeTime")				LifeTime			= (unsigned int)StringToInt(result[1]);
+			if (result[0] == "LifeTimeRange")			LifeTimeRange		= (unsigned int)StringToInt(result[1]);
+			if (result[0] == "Emitter") {
+				//再分割した文字列を入れておく受け皿
 				vector<string> value;
 
+				//文字列の再分割
 				Split(result[1], ',', value);
 
-				GenerationList.push_back(StringToWString(value[0]));
-				Interval.push_back((unsigned int)StringToInt(value[1]));
-				Production.push_back((unsigned int)StringToInt(value[2]));
+				EGenerationList.push_back(StringToWString(value[0]));
+				EInterval.push_back((unsigned int)StringToInt(value[1]));
+				EProduction.push_back((unsigned int)StringToInt(value[2]));
+			}
+			if (result[0] == "Particle") {
+				//再分割した文字列を入れておく受け皿
+				vector<string> value;
+
+				//文字列の再分割
+				Split(result[1], ',', value);
+
+				PGenerationList.push_back(StringToWString(value[0]));
+				PInterval.push_back((unsigned int)StringToInt(value[1]));
+				PProduction.push_back((unsigned int)StringToInt(value[2]));
 			}
 		}
+
+		//変化量を求める
+		Movement();
 	}
 
 	//エミッタファイルを作成します
@@ -161,7 +177,8 @@ namespace nel {
 				<< "RotationRange:0, 0, 0, 0" << endl
 				<< "LifeTime:1" << endl
 				<< "LifeTimeRange:0" << endl
-				<< "Particle:.particle, 1, 1" << endl
+				<< "//Emitter:.emitter, 1, 1" << endl
+				<< "//Particle:.particle, 1, 1" << endl
 				<< "eoe" << endl
 				<< endl
 				<< endl
