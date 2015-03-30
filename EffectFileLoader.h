@@ -1,13 +1,16 @@
 namespace nel {
 
-	//パーティクルファイルの操作クラス-----------------------------------------------------------------------------------------
+	//---------------------------------------------------------------------------------------------------------------------------
+	//パーティクルファイルの操作クラス
 	class CParticleFile : public ParticleParameter {
 	public:
+		wstring ParticleFileName;			//読み込んだパーティクルファイル名
+
 		//引数なしコンストラクタ
-		CParticleFile() {}
+		CParticleFile() : ParticleFileName(NULL), ParticleParameter() {}
 
 		//filename からパラメータ値を読み込みます
-		CParticleFile(wstring filename) {
+		CParticleFile(wstring filename) : ParticleFileName(filename), ParticleParameter() {
 			ReadParticleFile(filename);
 		}
 
@@ -20,14 +23,17 @@ namespace nel {
 	void CreateParticleFile(wstring filename);
 
 
-	//エミッタファイルの操作クラス-----------------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------------------------------------------------------------
+	//エミッタファイルの操作クラス
 	class CEmitterFile : public EmitterParameter {
 	public:
+		wstring EmitterFileName;			//読み込んだエミッタファイル名
+
 		//引数なしコンストラクタ
-		CEmitterFile() {}
+		CEmitterFile() : EmitterFileName(NULL), EmitterParameter() {}
 
 		//filename からパラメータ値を読み込みます
-		CEmitterFile(wstring filename) {
+		CEmitterFile(wstring filename) : EmitterFileName(filename), EmitterParameter() {
 			ReadEmitterFile(filename);
 		}
 
