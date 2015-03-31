@@ -16,44 +16,41 @@ namespace nel {
 			Split(buf, ':', result);
 
 			//パラメータ値の読み出し
-			if (result[0] == "Name")					Name						= StringToWString(result[1]);
-			if (result[0] == "TextureName")				TextureName					= StringToWString(result[1]);
-			if (result[0] == "ModelName")				ModelName					= StringToWString(result[1]);
-			if (result[0] == "InitScale")				InitScale					= StringToCVector(result[1]);
-			if (result[0] == "InitScaleRange")			InitScaleRange				= StringToCVector(result[1]);
-			if (result[0] == "EndScale")				EndScale					= StringToCVector(result[1]);
-			if (result[0] == "InitColor")				InitColor					= StringToCColor(result[1]);
-			if (result[0] == "InitColorRange")			InitColorRange				= StringToCColor(result[1]);
-			if (result[0] == "EndColor")				EndColor					= StringToCColor(result[1]);
-			if (result[0] == "InitSpecularColor")		InitSpecularColor			= StringToCColor(result[1]);
-			if (result[0] == "InitSpecularColorRange")	InitSpecularColorRange		= StringToCColor(result[1]);
-			if (result[0] == "EndSpecularColor")		EndColor					= StringToCColor(result[1]);
-			if (result[0] == "InitEmissiveColor")		InitEmissiveColor			= StringToCColor(result[1]);
-			if (result[0] == "InitEmissiveColorRange")	InitEmissiveColorRange		= StringToCColor(result[1]);
-			if (result[0] == "EndEmissiveColor")		EndEmissiveColor			= StringToCColor(result[1]);
-			if (result[0] == "InitRimColor")			InitRimColor				= StringToCColor(result[1]);
-			if (result[0] == "InitRimColorRange")		InitRimColorRange			= StringToCColor(result[1]);
-			if (result[0] == "EndRimColor")				EndRimColor					= StringToCColor(result[1]);
-			if (result[0] == "PositionRange")			PositionRange				= StringToCVector(result[1]);
-			if (result[0] == "InitVelocity")			InitVelocity				= StringToCVector(result[1]);
-			if (result[0] == "InitVelocityRange")		InitVelocityRange			= StringToCVector(result[1]);
-			if (result[0] == "Velocity")				Velocity					= StringToCVector(result[1]);
-			if (result[0] == "VelocityRange")			VelocityRange				= StringToCVector(result[1]);
-			if (result[0] == "InitRotation")			InitRotation				= StringToCQuaternion(result[1]);
-			if (result[0] == "InitRotationRange")		InitRotationRange			= StringToCQuaternion(result[1]);
-			if (result[0] == "Rotation")				Rotation					= StringToCQuaternion(result[1]);
-			if (result[0] == "RotationRange")			RotationRange				= StringToCQuaternion(result[1]);
-			if (result[0] == "UseGravity")				UseGravity					= StringToBool(result[1]);
-			if (result[0] == "Gravity")					Gravity						= StringToFloat(result[1]);
-			if (result[0] == "LifeTime")				LifeTime					= (unsigned int)StringToInt(result[1]);
-			if (result[0] == "LifeTimeRange")			LifeTimeRange				= (unsigned int)StringToInt(result[1]);
-			if (result[0] == "Billboard")				Billboard					= StringToBool(result[1]);
-			if (result[0] == "ShadowCasting")			ShadowCasting				= StringToBool(result[1]);
-			if (result[0] == "ShadowCasted")			ShadowCasted				= StringToBool(result[1]);
+			if (result[0] == "Name")					PName						= StringToWString(result[1]);
+			if (result[0] == "TextureName")				PTextureName				= StringToWString(result[1]);
+			if (result[0] == "ModelName")				PModelName					= StringToWString(result[1]);
+			if (result[0] == "InitScale")				PInitScale					= StringToCVector(result[1]);
+			if (result[0] == "InitScaleRange")			PInitScaleRange				= StringToCVector(result[1]);
+			if (result[0] == "EndScale")				PEndScale					= StringToCVector(result[1]);
+			if (result[0] == "InitColor")				PInitColor					= StringToCColor(result[1]);
+			if (result[0] == "InitColorRange")			PInitColorRange				= StringToCColor(result[1]);
+			if (result[0] == "EndColor")				PEndColor					= StringToCColor(result[1]);
+			if (result[0] == "InitSpecularColor")		PInitSpecularColor			= StringToCColor(result[1]);
+			if (result[0] == "InitSpecularColorRange")	PInitSpecularColorRange		= StringToCColor(result[1]);
+			if (result[0] == "EndSpecularColor")		PEndColor					= StringToCColor(result[1]);
+			if (result[0] == "InitEmissiveColor")		PInitEmissiveColor			= StringToCColor(result[1]);
+			if (result[0] == "InitEmissiveColorRange")	PInitEmissiveColorRange		= StringToCColor(result[1]);
+			if (result[0] == "EndEmissiveColor")		PEndEmissiveColor			= StringToCColor(result[1]);
+			if (result[0] == "InitRimColor")			PInitRimColor				= StringToCColor(result[1]);
+			if (result[0] == "InitRimColorRange")		PInitRimColorRange			= StringToCColor(result[1]);
+			if (result[0] == "EndRimColor")				PEndRimColor				= StringToCColor(result[1]);
+			if (result[0] == "PositionRange")			PPositionRange				= StringToCVector(result[1]);
+			if (result[0] == "InitVelocity")			PInitVelocity				= StringToCVector(result[1]);
+			if (result[0] == "InitVelocityRange")		PInitVelocityRange			= StringToCVector(result[1]);
+			if (result[0] == "Velocity")				PVelocity					= StringToCVector(result[1]);
+			if (result[0] == "VelocityRange")			PVelocityRange				= StringToCVector(result[1]);
+			if (result[0] == "InitRotation")			PInitRotation				= StringToCQuaternion(result[1]);
+			if (result[0] == "InitRotationRange")		PInitRotationRange			= StringToCQuaternion(result[1]);
+			if (result[0] == "Rotation")				PRotation					= StringToCQuaternion(result[1]);
+			if (result[0] == "RotationRange")			PRotationRange				= StringToCQuaternion(result[1]);
+			if (result[0] == "UseGravity")				PUseGravity					= StringToBool(result[1]);
+			if (result[0] == "Gravity")					PGravity					= StringToFloat(result[1]);
+			if (result[0] == "LifeTime")				PLifeTime					= (unsigned int)StringToInt(result[1]);
+			if (result[0] == "LifeTimeRange")			PLifeTimeRange				= (unsigned int)StringToInt(result[1]);
+			if (result[0] == "Billboard")				PBillboard					= StringToBool(result[1]);
+			if (result[0] == "ShadowCasting")			PShadowCasting				= StringToBool(result[1]);
+			if (result[0] == "ShadowCasted")			PShadowCasted				= StringToBool(result[1]);
 		}
-
-		//変化量を求める
-		Movement();
 	}
 
 	//パーティクルファイルを作成します
@@ -119,18 +116,18 @@ namespace nel {
 			Split(buf, ':', result);
 
 			//パラメータ値の読み出し
-			if (result[0] == "Name")					Name				= StringToWString(result[1]);
-			if (result[0] == "PositionRange")			PositionRange		= StringToCVector(result[1]);
-			if (result[0] == "InitVelocity")			InitVelocity		= StringToCVector(result[1]);
-			if (result[0] == "InitVelocityRange")		InitVelocityRange	= StringToCVector(result[1]);
-			if (result[0] == "Velocity")				Velocity			= StringToCVector(result[1]);
-			if (result[0] == "VelocityRange")			VelocityRange		= StringToCVector(result[1]);
-			if (result[0] == "InitRotation")			InitRotation		= StringToCQuaternion(result[1]);
-			if (result[0] == "InitRotationRange")		InitRotationRange	= StringToCQuaternion(result[1]);
-			if (result[0] == "Rotation")				Rotation			= StringToCQuaternion(result[1]);
-			if (result[0] == "RotationRange")			RotationRange		= StringToCQuaternion(result[1]);
-			if (result[0] == "LifeTime")				LifeTime			= (unsigned int)StringToInt(result[1]);
-			if (result[0] == "LifeTimeRange")			LifeTimeRange		= (unsigned int)StringToInt(result[1]);
+			if (result[0] == "Name")					EName				= StringToWString(result[1]);
+			if (result[0] == "PositionRange")			EPositionRange		= StringToCVector(result[1]);
+			if (result[0] == "InitVelocity")			EInitVelocity		= StringToCVector(result[1]);
+			if (result[0] == "InitVelocityRange")		EInitVelocityRange	= StringToCVector(result[1]);
+			if (result[0] == "Velocity")				EVelocity			= StringToCVector(result[1]);
+			if (result[0] == "VelocityRange")			EVelocityRange		= StringToCVector(result[1]);
+			if (result[0] == "InitRotation")			EInitRotation		= StringToCQuaternion(result[1]);
+			if (result[0] == "InitRotationRange")		EInitRotationRange	= StringToCQuaternion(result[1]);
+			if (result[0] == "Rotation")				ERotation			= StringToCQuaternion(result[1]);
+			if (result[0] == "RotationRange")			ERotationRange		= StringToCQuaternion(result[1]);
+			if (result[0] == "LifeTime")				ELifeTime			= (unsigned int)StringToInt(result[1]);
+			if (result[0] == "LifeTimeRange")			ELifeTimeRange		= (unsigned int)StringToInt(result[1]);
 			if (result[0] == "Emitter") {
 				//再分割した文字列を入れておく受け皿
 				vector<string> value;
@@ -138,9 +135,9 @@ namespace nel {
 				//文字列の再分割
 				Split(result[1], ',', value);
 
-				EGenerationList.push_back(StringToWString(value[0]));
-				EInterval.push_back((unsigned int)StringToInt(value[1]));
-				EProduction.push_back((unsigned int)StringToInt(value[2]));
+				EEGenerationList.push_back(StringToWString(value[0]));
+				EEInterval.push_back((unsigned int)StringToInt(value[1]));
+				EEProduction.push_back((unsigned int)StringToInt(value[2]));
 			}
 			if (result[0] == "Particle") {
 				//再分割した文字列を入れておく受け皿
@@ -149,14 +146,11 @@ namespace nel {
 				//文字列の再分割
 				Split(result[1], ',', value);
 
-				PGenerationList.push_back(StringToWString(value[0]));
-				PInterval.push_back((unsigned int)StringToInt(value[1]));
-				PProduction.push_back((unsigned int)StringToInt(value[2]));
+				EPGenerationList.push_back(StringToWString(value[0]));
+				EPInterval.push_back((unsigned int)StringToInt(value[1]));
+				EPProduction.push_back((unsigned int)StringToInt(value[2]));
 			}
 		}
-
-		//変化量を求める
-		Movement();
 	}
 
 	//エミッタファイルを作成します

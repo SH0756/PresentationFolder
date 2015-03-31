@@ -3,41 +3,34 @@ namespace nel {
 	//エミッタパラメータ
 	struct EmitterParameter {
 	public:
-		wstring					Name;						//エミッタ名
-		CVector					PositionRange;				//生成位置の幅
-		CVector					InitVelocity;				//初期加速度
-		CVector					InitVelocityRange;			//初期加速度の幅
-		CVector					Velocity;					//加速度の変化量
-		CVector					VelocityRange;				//加速度の幅
-		CQuaternion				InitRotation;				//初期回転量
-		CQuaternion				InitRotationRange;			//初期回転量の幅
-		CQuaternion				Rotation;					//回転量の変化量
-		CQuaternion				RotationRange;				//回転量の幅
-		unsigned int			LifeTime;					//生存時間（フレーム単位）
-		unsigned int			LifeTimeRange;				//生存時間の幅
-		vector<wstring>			EGenerationList;			//エミッタ生成リスト
-		vector<unsigned int>	EInterval;					//エミッタ生成間隔
-		vector<unsigned int>	EProduction;				//エミッタ生成量
-		vector<wstring>			PGenerationList;			//パーティクル生成リスト
-		vector<unsigned int>	PInterval;					//パーティクル生成間隔
-		vector<unsigned int>	PProduction;				//パーティクル生成量
+		wstring					EName;						//エミッタ名
+		CVector					EPositionRange;				//生成位置の幅
+		CVector					EInitVelocity;				//初期加速度
+		CVector					EInitVelocityRange;			//初期加速度の幅
+		CVector					EVelocity;					//加速度の変化量
+		CVector					EVelocityRange;				//加速度の幅
+		CQuaternion				EInitRotation;				//初期回転量
+		CQuaternion				EInitRotationRange;			//初期回転量の幅
+		CQuaternion				ERotation;					//回転量の変化量
+		CQuaternion				ERotationRange;				//回転量の幅
+		unsigned int			ELifeTime;					//生存時間（フレーム単位）
+		unsigned int			ELifeTimeRange;				//生存時間の幅
+		vector<wstring>			EEGenerationList;			//エミッタ生成リスト
+		vector<unsigned int>	EEInterval;					//エミッタ生成間隔
+		vector<unsigned int>	EEProduction;				//エミッタ生成量
+		vector<wstring>			EPGenerationList;			//パーティクル生成リスト
+		vector<unsigned int>	EPInterval;					//パーティクル生成間隔
+		vector<unsigned int>	EPProduction;				//パーティクル生成量
 
 		//コンストラクタ
 
 		//引数なしコンストラクタ
 		EmitterParameter() :
-			Name(L""),
-			PositionRange(CVector()),
-			InitVelocity(CVector()), InitVelocityRange(CVector()), Velocity(CVector()), VelocityRange(CVector()), 
-			InitRotation(CQuaternion()), InitRotationRange(CQuaternion()), Rotation(CQuaternion()), RotationRange(CQuaternion()), 
-			LifeTime(0), LifeTimeRange(0) {}
-
-		void Movement() {
-			if (LifeTimeRange > LifeTime) LifeTimeRange = LifeTime - 1;
-			LifeTime = (unsigned int)(LifeTime + LifeTimeRange * Random(-1, 1));
-			Velocity += (VelocityRange * Random(-1, 1));
-			Rotation *= (RotationRange * Random(-1, 1));
-		}
+			EName(L""),
+			EPositionRange(CVector()),
+			EInitVelocity(CVector()), EInitVelocityRange(CVector()), EVelocity(CVector()), EVelocityRange(CVector()), 
+			EInitRotation(CQuaternion()), EInitRotationRange(CQuaternion()), ERotation(CQuaternion()), ERotationRange(CQuaternion()), 
+			ELifeTime(0), ELifeTimeRange(0) {}
 
 		//パラメータ値を返します
 		EmitterParameter& GetParameter() { return *this; }

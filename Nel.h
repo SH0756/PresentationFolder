@@ -16,3 +16,6 @@ using namespace higpen;
 
 #include "EffectFileLoader.h"
 
+#include "EmitterBase.h"
+#include "ParticleBase.h"
+

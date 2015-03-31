@@ -124,7 +124,7 @@ namespace nel {
 
 		for (int i = 0; i < 4; i++) resultf.push_back(nel::StringToFloat(results[i]));
 
-		return CQuaternion(Normalize(CVector(resultf[0], resultf[1], resultf[2])), resultf[3]);
+		return CQuaternion(resultf[0], resultf[1], resultf[2], resultf[3]);
 	}
 
 }
