@@ -59,15 +59,16 @@ namespace nel {
 		ofstream ofs(GetExePath() + L"../effect/" + filename + L".particle", ios::out | ios::_Noreplace);
 
 		if (ofs) {
-			ofs << "Name:"						<< TWStringToString(filename) << endl
-				<< "TextureName:"				<< endl
-				<< "ModelName:"					<< endl
-				<< "InitScale:,,"				<< endl
+			ofs << "使わないパラメータは消すようにしてください"
+			    << "Name:"						<< TWStringToString(filename) << endl
+				<< "TextureName:NULL"			<< endl
+				<< "ModelName:NULL"				<< endl
+				<< "InitScale:1, 1, 1"			<< endl
 				<< "InitScaleRange:,,"			<< endl
-				<< "EndScale:,,"				<< endl
-				<< "InitColor:,,,"				<< endl
+				<< "EndScale:1, 1, 1"			<< endl
+				<< "InitColor:1, 1, 1, 1"		<< endl
 				<< "InitColorRange:,,,"			<< endl
-				<< "EndColor:,,,"				<< endl
+				<< "EndColor:1, 1, 1, 1"		<< endl
 				<< "InitSpecularColor:,,,"		<< endl
 				<< "InitSpecularColorRange:,,," << endl
 				<< "EndSpecularColor:,,,"		<< endl
@@ -86,13 +87,13 @@ namespace nel {
 				<< "InitRotationRange:,,,"		<< endl
 				<< "Rotation:,,,"				<< endl
 				<< "RotationRange:,,,"			<< endl
-				<< "UseGravity:"				<< endl
+				<< "UseGravity:false"			<< endl
 				<< "Gravity:"					<< endl
 				<< "LifeTime:"					<< endl
 				<< "LifeTimeRange:"				<< endl
-				<< "Billboard:"					<< "true" << endl
-				<< "ShadowCasting:"				<< "true" << endl
-				<< "ShadowCasted:"				<< "true" << endl
+				<< "Billboard:true"				<< endl
+				<< "ShadowCasting:true"			<< endl
+				<< "ShadowCasted:true"			<< endl
 				<< "eop" << endl
 				<< endl
 				<< endl
@@ -129,6 +130,7 @@ namespace nel {
 			if (result[0] == "LifeTime")				ELifeTime			= (unsigned int)StringToInt(result[1]);
 			if (result[0] == "LifeTimeRange")			ELifeTimeRange		= (unsigned int)StringToInt(result[1]);
 			if (result[0] == "Emitter") {
+
 				//再分割した文字列を入れておく受け皿
 				vector<string> value;
 

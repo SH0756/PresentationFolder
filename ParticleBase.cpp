@@ -2,7 +2,7 @@
 
 namespace nel {
 	//パーティクルのパラメータ値の変化量を求める
-	void CParticleBase::Movement() {
+	void CParticleBase::FindAmountChange() {
 		if (PLifeTime < PLifeTimeRange) PLifeTimeRange = PLifeTime - 1;
 		PLifeTime = (unsigned int)(PLifeTime + PLifeTimeRange * Random(-1, 1));
 		PScale = (PEndScale - PInitScale) / (float)PLifeTime;

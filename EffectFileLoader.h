@@ -7,10 +7,10 @@ namespace nel {
 		wstring ParticleFileName;			//読み込んだパーティクルファイル名
 
 		//引数なしコンストラクタ
-		CParticleFile() : ParticleFileName(NULL), ParticleParameter() {}
+		CParticleFile() : ParticleFileName(NULL) {}
 
 		//filename からパラメータ値を読み込みます
-		CParticleFile(wstring filename) : ParticleFileName(filename), ParticleParameter() {
+		CParticleFile(wstring filename) : ParticleFileName(filename) {
 			ReadParticleFile(filename);
 		}
 

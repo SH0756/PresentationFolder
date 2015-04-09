@@ -7,19 +7,19 @@ namespace nel {
 		wstring			PTextureName;				//テクスチャ名
 		wstring			PModelName;					//モデル名（.x形式）
 		CVector			PInitScale;					//拡大縮小率の初期値
-		CVector			PInitScaleRange;				//拡大縮小率の初期値の幅
+		CVector			PInitScaleRange;			//拡大縮小率の初期値の幅
 		CVector			PEndScale;					//拡大縮小率の終了値
 		CVector			PScale;						//拡大縮小率の変化量
 		CColor			PInitColor;					//色の初期値
-		CColor			PInitColorRange;				//色の初期値の幅
+		CColor			PInitColorRange;			//色の初期値の幅
 		CColor			PEndColor;					//色の終了値
 		CColor			PColor;						//色の変化量
 		CColor			PInitSpecularColor;			//ハイライト色の初期値
-		CColor			PInitSpecularColorRange;		//ハイライト色の初期値の幅
+		CColor			PInitSpecularColorRange;	//ハイライト色の初期値の幅
 		CColor			PEndSpecularColor;			//ハイライト色の終了値
 		CColor			PSpecularColor;				//ハイライト色の変化量
 		CColor			PInitEmissiveColor;			//自己発光色の初期値
-		CColor			PInitEmissiveColorRange;		//自己発光色の初期値の幅
+		CColor			PInitEmissiveColorRange;	//自己発光色の初期値の幅
 		CColor			PEndEmissiveColor;			//自己発光色の終了値
 		CColor			PEmissiveColor;				//自己発光色の変化量
 		CColor			PInitRimColor;				//リムライト色の初期値
@@ -35,7 +35,7 @@ namespace nel {
 		CQuaternion		PInitRotationRange;			//初期回転量の幅
 		CQuaternion		PRotation;					//回転量の変化量
 		CQuaternion		PRotationRange;				//回転量の幅
-		bool			PUseGravity;					//重力の影響を受けるかどうか
+		bool			PUseGravity;				//重力の影響を受けるかどうか
 		float			PGravity;					//重力の強さ
 		unsigned int	PLifeTime;					//生存時間（フレーム単位）
 		unsigned int	PLifeTimeRange;				//生存時間の幅
@@ -56,7 +56,7 @@ namespace nel {
 			PPositionRange(CVector()),
 			PInitVelocity(CVector()), PInitVelocityRange(CVector()), PVelocity(CVector()), PVelocityRange(CVector()),
 			PInitRotation(CQuaternion()), PInitRotationRange(CQuaternion()), PRotation(CQuaternion()), PRotationRange(CQuaternion()),
-			PUseGravity(false), PGravity(0.0001f),
+			PUseGravity(false), PGravity(0),
 			PLifeTime(0), PLifeTimeRange(0),
 			PBillboard(true), PShadowCasting(true), PShadowCasted(true) {}
 

@@ -4,10 +4,12 @@ namespace nel {
 	class CEmitterBase : public CEmitterFile {
 	public:
 		//コンストラクタ
-		CEmitterBase(wstring filename) : CEmitterFile(filename) {}
+		CEmitterBase(wstring filename) : CEmitterFile(filename) {
+			FindAmountChange();
+		}
 
 		//エミッタのパラメータ値の変化量を求めます
-		void Movement();
+		void FindAmountChange();
 	};
 
 }
