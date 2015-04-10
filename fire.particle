@@ -1,0 +1,38 @@
+Name:fire
+TextureName:Hit.png
+ModelName:NULL
+InitScale:0.4, 0.4, 0.4
+InitScaleRange:0.05, 0.05, 0.05
+EndScale:0, 0, 0
+InitColor:0, 0.4, 1, 0.1
+InitColorRange:0, 0, 0, 0
+EndColor:1, 0.2, 0, 0
+InitSpecularColor:0, 0, 0, 0
+InitSpecularColorRange:0, 0, 0, 0
+EndSpecularColor:0, 0, 0, 0
+InitEmissiveColor:0.4, 0.2, 0, 0.4
+InitEmissiveColorRange:0, 0, 0, 0
+EndEmissiveColor:1, 0.2, 0, 0
+InitRimColor:0, 0, 0, 0
+InitRimColorRange:0, 0, 0, 0
+EndRimColor:0, 0, 0, 0
+PositionRange:0.6, 0.5, 0.6
+InitVelocity:0, 0.03, 0
+InitVelocityRange:0.012, 0.01, 0.012
+Velocity:0, 0, 0
+VelocityRange:0, 0, 0
+InitRotation:0, 0, 0, 0
+InitRotationRange:0, 0, 0, 0
+Rotation:0, 1, 0, 0.06
+RotationRange:0, 0, 0, 0.01
+UseGravity:false
+Gravity:0.000163
+LifeTime:90
+LifeTimeRange:10
+Billboard:false
+ShadowCasting:false
+ShadowCasted:true
+eop
+
+
+eof
