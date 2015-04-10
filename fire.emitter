@@ -1,0 +1,17 @@
+Name:fire
+PositionRange:0, 0, 0
+InitVelocity:0, 0, 0
+InitVelocityRange:0, 0, 0
+Velocity:0, 0, 0
+VelocityRange:0, 0, 0
+InitRotation:0, 0, 0, 0
+InitRotationRange:0, 0, 0, 0
+Rotation:0, 0, 0, 0
+RotationRange:0, 0, 0, 0
+LifeTime:0
+LifeTimeRange:0
+Particle:fire.particle, 3, 1
+eoe
+
+
+eof
